@@ -8,7 +8,6 @@ from geoip import *
 from landiscover import *
 from listener import *
 from wafdetection import *
-from generator import *
 from ipresolver import *
 from portscanner import *
 from banner import *
