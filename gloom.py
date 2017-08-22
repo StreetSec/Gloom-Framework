@@ -19,7 +19,7 @@ try:
 	from termcolor import colored, cprint
 
 except ImportError as ie:
-	cprint(str(ie), 'red')
+	print(str(ie))
 
 
 class PlatformCheck(object):
