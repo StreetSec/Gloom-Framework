@@ -1,9 +1,4 @@
-  ________.__                          
- /  _____/|  |   ____   ____   _____   
-/   \  ___|  |  /  _ \ /  _ \ /     \  
-\    \_\  \  |_(  <_> |  <_> )  Y Y  \ 
- \______  /____/\____/ \____/|__|_|  / 
-        \/                         \/                         
+                      
 
 # Gloom-Framework :: Linux Penetration Testing Framework
 ## About Gloom
