@@ -2,7 +2,6 @@ import sys
 import os
 import pip
 import time
-from termcolor import colored, cprint
 
 if not os.geteuid() == 0:
 	sys.exit('You must Run this Script as ROOT!')
@@ -17,7 +16,7 @@ try:
     	install2 = os.system("cp -R gloom/ /opt/ && cp gloom.py /opt/gloom && cp run.sh /opt/gloom && cp run.sh /usr/bin/gloom && chmod +x /usr/bin/gloom")
 
 	pip.main(['install', 'scapy', 'termcolor', 'urllib2', 'pythonwhois', 'requests'])
-	cprint("[!] Finished Installing! Run 'sudo python gloom.py' to use program.", 'green')
+	print("[!] Finished Installing! Run 'sudo python gloom.py' to use program.")
 	sys.exit()
 
 except KeyboardInterrupt:
