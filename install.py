@@ -11,7 +11,6 @@ try:
 	os.system('easy_install pip')
 	os.system('apt-get install nmap')
 	os.system('apt-get install curl')
-	os.system('curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall')
 	install = os.system("apt-get update && apt-get install -y build-essential git")
     	install2 = os.system("cp -R gloom/ /opt/ && cp gloom.py /opt/gloom && cp run.sh /opt/gloom && cp run.sh /usr/bin/gloom && chmod +x /usr/bin/gloom")
 
