@@ -10,6 +10,7 @@
   ``cd Gloom-Framework``
 #### Third ``install``
   ``sudo python install.py``
+#### Run The Program
   ``sudo python gloom.py``
 ## Operating Systems
 - Gloom-Framework is Designed For Linux
