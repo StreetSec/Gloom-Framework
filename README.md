@@ -3,6 +3,14 @@
 ## About Gloom
 - Gloom is an Open-Source Security Framework
 - This Framework was written in Python
+### Install Gloom
+First ``git clone``
+  ``git clone https://github.com/joshDelta/Gloom-Framework.git``
+Second ``cd``
+  ``cd Gloom-Framework``
+Third ``install``
+  ``sudo python installer.py``
+  ``sudo python gloom.py``
 ## Operating Systems
 - Gloom-Framework is Designed For Linux
 ### Will Gloom work on Windows?
