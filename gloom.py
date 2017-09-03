@@ -1,7 +1,32 @@
+"""
+
+                            Welcome To Gloom
+                            ================
+    Welcome to Gloom-Framework v.1.0. Your gonna love the envirenment.
+Gloom is an open source Penetration Testing Framework designed for Linux systems.
+This piece if software was developed by Josh(Yeah, Just Josh). The Following will be some basic info.
+
+                            !DISCLAIMER!
+                            ============
+    Gloom is meant for security researching purposes only and should be used
+simply for good not for bad. The Developer of this tool is not to be held responsible
+for misuse of this software. Please use wisely. Gloom is in it's early stage of development
+so please report any issues to the gitHub Repository.
+
+- Gloom-Framework Developer,
+
+Josh
+
+
+"""
+
+
+#LIBS AND MODS#
+###############
 import os
 import sys
 import time
-import pythonwhois 
+import pythonwhois
 sys.path.append('core/')
 from adminfinder import *
 from geoip import *
@@ -13,6 +38,7 @@ from portscanner import *
 from banner import *
 from wifijammer import *
 from payloadgen import *
+from fuzzer import *
 
 
 try:
@@ -42,12 +68,12 @@ os.system('clear')
 class checkRoot(object):
 	def sudoCheck(self):
 		if not os.geteuid() == 0:
-			os.system('clear') 
+			os.system('clear')
 			print("[gloom_error]" + colored(" This Script Must be Run as Root!", 'red'))
-			sys.exit(0) 
+			sys.exit(1)
 
 checksudo = checkRoot()
-checksudo.sudoCheck() 
+checksudo.sudoCheck()
 
 class GloomMain(object):
 
@@ -68,33 +94,33 @@ class GloomMain(object):
 			'waf_scanning',
 			'port_scanner',
 			'payload_generator'
-	
+
 			]
 
-		gloom_prompt = raw_input("\n[" + colored('gloom', 'red') + "] ") 
-		
+		gloom_prompt = raw_input("\n[" + colored('gloom', 'red') + "] ")
+
 		if gloom_prompt == 'exit':
 			sys.exit(0)
-       		
+
 		if gloom_prompt == 'clear':
 			os.system('clear')
-			return gloom_main.on_load() 
+			return gloom_main.on_load()
 
 		if gloom_prompt == 'info':
 			print("Developer: " + colored(__author__, 'green'))
-			print("Version: " + colored(__version__, 'green')) 
+			print("Version: " + colored(__version__, 'green'))
 			print("Date: " + colored(__date__, 'green'))
-			print("Tools: " + colored(__tools__, 'blue'))  
-			return gloom_main.on_load() 
-		
+			print("Tools: " + colored(__tools__, 'blue'))
+			return gloom_main.on_load()
+
 		if gloom_prompt == 'load':
-			load_mod = gloom_prompt + ''   
+			load_mod = gloom_prompt + ''
 			if load_mod not in gloom_tools:
 				print("[gloom_error] " + colored("Failed To Load Module", 'red'))
-				return gloom_main.on_load() 
+				return gloom_main.on_load()
 
 			elif load_mod in gloom_tools:
-				print(gloom_prompt + '(' + colored(load_mod, 'red') + ')') 
+				print(gloom_prompt + '(' + colored(load_mod, 'red') + ')')
 
 		if gloom_prompt == 'help':
 			print "\n"
@@ -106,14 +132,14 @@ class GloomMain(object):
 			print "info :: " + colored("Shows Tool Information", 'blue')
 			print "\n"
 			print "\t\t|Tools|"
-			print "=" * 40 
+			print "=" * 40
 			print "admin_panel_finder :: " + colored("Find Website Admin Panels", 'blue')
 			print "ip_geolocation :: " + colored("Geolocate an IP Address", 'blue')
-			print "web_whois :: " + colored("Gather WHOIS Information on a Target", 'blue') 
+			print "web_whois :: " + colored("Gather WHOIS Information on a Target", 'blue')
 			print "\n"
 			print "discover_lan_devices :: " + colored("Detect Users/Devices on LAN", 'blue')
 			print "website_ip_resolver :: " + colored("Get IP Address of Website", 'blue')
-			print "payload_generator :: " + colored("Generate Windows Payload", 'blue') 
+			print "payload_generator :: " + colored("Generate Windows Payload", 'blue')
 			print "\n"
 			print "wifi_jammer :: " + colored("Wireless Deauthentication Attack", 'blue')
 			print "listener :: " + colored("Listen For Connections on Network", 'blue')
@@ -121,75 +147,95 @@ class GloomMain(object):
 			print "waf_scanning :: " + colored("Scan for Website Firewall", 'blue')
 			print "port_scanner :: " + colored("Scan for Open Ports", 'blue')
 			print "\n"
+                        print "\t\t|Fuzzing|"
+                        print "=" * 40
+                        print "tcp_fuzzer :: " + colored("Fuzz Applications via. TCP", 'blue')
+                        print "ftp_fuzzer :: " + colored("Fuzz Applications via. FTP", 'blue')
+                        print "http_fuzzer :: " + colored("Fuzz Applications via. HTTP", 'blue')
 
-			return gloom_main.on_load() 
-		
+        	        return gloom_main.on_load()
+
 		elif gloom_prompt == 'admin_panel_finder':
-			findAdmin() 
+			findAdmin()
 			return gloom_main.on_load()
 
 		elif gloom_prompt == 'ip_geolocation':
-			geolocate() 
-			return gloom_main.on_load() 
-		
+			geolocate()
+			return gloom_main.on_load()
+
 		elif gloom_prompt == 'discover_lan_devices':
 			DiscoverLiveHosts()
-			return gloom_main.on_load() 
+			return gloom_main.on_load()
 
 		elif gloom_prompt == 'website_ip_resolver':
 			ResolveIP()
 			return gloom_main.on_load()
 
 		elif gloom_prompt == 'web_whois':
-			os.system('clear') 
+			os.system('clear')
 			CORE_STRING = colored("[web_whois]", 'blue')
        			TARGET = raw_input(CORE_STRING + " Website> ")
 			domains = [TARGET]
 			for dom in domains:
 				details = pythonwhois.get_whois(dom)
-	        		print details['contacts']['registrant'] 
+	        		print details['contacts']['registrant']
 
-			return gloom_main.on_load() 
+			return gloom_main.on_load()
 
 		elif gloom_prompt == 'wifi_jammer':
 			RunScapyBasicDeauthentication()
-			return gloom_main.on_load() 
+			return gloom_main.on_load()
 
 		elif gloom_prompt == 'listener':
 			sockListen()
-			sockAccept() 
-			return gloom_main.on_load() 
-		
+			sockAccept()
+			return gloom_main.on_load()
+
 		elif gloom_prompt == 'waf_scanning':
 			RunDetection()
-			return gloom_main.on_load() 
+			return gloom_main.on_load()
 
 		elif gloom_prompt == 'port_scanner':
 			PortScanner()
-			return gloom_main.on_load() 
-		
+			return gloom_main.on_load()
+
 		elif gloom_prompt == 'payload_generator':
-			payload = EXEPayloads() 
-			payload.GetInputVariables() 
-			payload.Meterpreter() 
-			return gloom_main.on_load() 
+			payload = EXEPayloads()
+			payload.GetInputVariables()
+			payload.Meterpreter()
+			return gloom_main.on_load()
+
+                elif gloom_prompt == 'tcp_fuzzer':
+                        fuzztcp = Fuzzer()
+                        fuzztcp.TCPFuzzer()
+                        return gloom_main.on_load()
+
+                elif gloom_prompt == 'ftp_fuzzer':
+                        fuzzftp = Fuzzer()
+                        fuzzftp.FTPFuzzer()
+                        return gloom_main.on_load()
+
+                elif gloom_prompt == 'http_fuzzer':
+                        fuzzhttp = Fuzzer()
+                        fuzzhttp.HTTPFuzzer()
+                        return gloom_main.on_load()
 
 		else:
 			print("[gloom_error] " + colored("Unknown Command/Argument!", 'red'))
-			return gloom_main.on_load()  
+			return gloom_main.on_load()
 
 def SecondaryBanner():
 	cprint("[]    Gloom Framework        []", 'blue')
-	time.sleep(0.1) 
-	cprint("[]      @joshDelta           []", 'green') 
-	time.sleep(0.1) 
+	time.sleep(0.1)
+	cprint("[]      @joshDelta           []", 'green')
+	time.sleep(0.1)
 	cprint("[]      <-Partner->          []", 'green')
-	time.sleep(0.1) 
+	time.sleep(0.1)
 	cprint("[] http://unrealsecurity.net []", 'blue')
-	time.sleep(1.5) 
+	time.sleep(1.5)
 
 if __name__ == "__main__":
-	load_banner() 
-	SecondaryBanner() 
+	load_banner()
+	SecondaryBanner()
 	gloom_main = GloomMain()
-	gloom_main.on_load() 
+	gloom_main.on_load()
