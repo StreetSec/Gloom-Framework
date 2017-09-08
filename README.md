@@ -3,6 +3,15 @@
 ## About Gloom
 - Gloom is an Open-Source Security Framework
 - This Framework was written in Python
+## SStec Tutorials Youtube
+Special Thanks to sstec for making videos on GLoom.
+- Video 1
+https://youtu.be/R_0ErWoosFY
+- Video 2
+https://youtu.be/ZTQRT1rkS8w
+- Video 3
+https://youtu.be/ILXsZoSAajI
+Make Sure to Check Them Out!
 ### Install Gloom
 #### First ``git clone``
   ``git clone https://github.com/joshDelta/Gloom-Framework.git``
