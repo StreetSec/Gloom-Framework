@@ -3,8 +3,8 @@
 ## About Gloom
 - Gloom is an Open-Source Security Framework
 - This Framework was written in Python
-## SStec Tutorials Youtube
-Special Thanks to sstec for making videos on GLoom.
+## SSTec Tutorials Youtube
+Special Thanks to SSTec Tutorials for making videos on GLoom.
 - Video 1
 https://youtu.be/R_0ErWoosFY
 - Video 2
