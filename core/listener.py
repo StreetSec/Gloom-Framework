@@ -34,6 +34,7 @@ def sockAccept():
 		while True:
 			conn, addr = s.accept()
 			print CORE_STRING + "Connection With: " + str(addr[0]) + ":" + str(addr[1])
+                        s.recv(6000)
 
 	except socket.error as w:
 		cprint(str(w), 'red')

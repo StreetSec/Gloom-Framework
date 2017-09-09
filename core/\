@@ -1,0 +1,34 @@
+import os
+import requests
+import sys
+import time
+import socket
+import datetime
+import json
+from bs4 import BeautifulSoup
+from termcolor import cprint, colored
+
+class Breach(object):
+
+    def RunMainCheck(self, email):
+        email_list = []
+        api = "https://haveibeenpwned.com/api/v2/breachedaccount/%s?truncateResponse=true" % email
+        time.sleep(1)
+
+        print "[!] Trying to Authenticate Email: " + colored('%s', 'blue') % email
+        r = requests.get(api,headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0'})
+        auth_status = 200
+
+        if(r.status_code == 200):
+            try:
+                pwnedSites = json.loads(r.text)
+                for site in pwnedSites:
+                    print "[+] %s pwned at %s breach [+]" % (email ,site["Name"])
+            except Exception:
+                pass
+breacher = Breach()
+breacher.RunMainCheck(raw_input("Email> "))
+
+
+
+
