@@ -27,6 +27,7 @@ import os
 import sys
 import time
 import pythonwhois
+import datetime
 sys.path.append('core/')
 from adminfinder import *
 from geoip import *
@@ -40,7 +41,7 @@ from wifijammer import *
 from payloadgen import *
 from fuzzer import *
 from checkbreach import *
-
+from anon_email import *
 
 try:
 	from termcolor import colored, cprint
@@ -79,9 +80,9 @@ checksudo.sudoCheck()
 class GloomMain(object):
 
 	def on_load(self):
-		__version__ = '1.0'
+		__version__ = '1.6'
 		__author__ = "Josh"
-		__date__ = "August 20, 2017"
+		__date__ = datetime.datetime.now()
 		__tools__ = "8"
 
 		gloom_tools = [
@@ -149,6 +150,7 @@ class GloomMain(object):
 			    print "\n"
 			    print "waf_scanning :: " + colored("Scan for Website Firewall", 'blue')
 			    print "port_scanner :: " + colored("Scan for Open Ports", 'blue')
+                            print "anon_email :: " + colored("Send An Anonymous Email", 'blue')
 			    print "\n"
                             print "\t\t|Fuzzing|"
                             print "=" * 40
@@ -227,6 +229,12 @@ class GloomMain(object):
                             breacher = Breach()
                             CORE_STRING = colored("[check_email_breach]", 'blue')
                             breacher.RunMainCheck(raw_input(CORE_STRING + " Email> "))
+                            return gloom_main.on_load()
+
+                    elif gloom_prompt == 'anon_email':
+                            os.system('clear')
+                            anon = AnonEmail()
+                            anon.SendAnonEmail()
                             return gloom_main.on_load()
 
 		    else:
