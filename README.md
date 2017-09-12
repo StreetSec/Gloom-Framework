@@ -28,4 +28,6 @@ Make Sure to Check Them Out!
 - Gloom-Framework is Designed For Linux
 ### Will Gloom work on Windows?
 - No, Gloom is not built for Windows
+### Discord
+https://discord.gg/SfwdKy
 
