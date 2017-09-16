@@ -15,7 +15,7 @@ https://youtu.be/ZTQRT1rkS8w
 - Video 3
 https://youtu.be/ILXsZoSAajI
 Make Sure to Check Them Out!
-## Can I Fully Purchase This Framework(Take Ownership)?
+### Can I Fully Purchase This Framework(Take Ownership)?
  - Yes you can! If you want to purchase Gloom Framework,
  please contact -> gloomhelp5@gmail.com
 #### Price?
