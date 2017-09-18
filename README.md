@@ -35,5 +35,5 @@ Make Sure to Check Them Out!
 ### Will Gloom work on Windows?
 - No, Gloom is not built for Windows
 ### Discord
-https://discord.gg/SfwdKy
+I am working on a Discord Server that will be up shortly.
 
