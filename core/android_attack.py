@@ -176,24 +176,3 @@ class SMS(object):
         except:
             pass
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
