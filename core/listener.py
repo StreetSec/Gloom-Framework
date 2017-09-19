@@ -34,7 +34,12 @@ def sockAccept():
 		while True:
 			conn, addr = s.accept()
 			print CORE_STRING + "Connection With: " + str(addr[0]) + ":" + str(addr[1])
-                        s.recv(6000)
+                        break_ = raw_input(CORE_STRING + " Would You like to Stop Listening To Connections[yes/no]> ")
+                        if break_ == "yes" or break_ == "y" or break_ == "Y" or break_ == "Yes":
+                            break
+
+                        else:
+                            continue
 
 	except socket.error as w:
 		cprint(str(w), 'red')

@@ -6,7 +6,7 @@ from urllib2 import urlopen, Request, URLError, HTTPError
 from termcolor import colored, cprint
 
 def findAdmin():
-	CORE_STRING = colored("[admin_panel_finder]", 'blue') 
+	CORE_STRING = colored("[admin_panel_finder]", 'blue')
 	file_var = open("link.txt", 'r')
 	os.system('clear')
 
@@ -35,6 +35,6 @@ def findAdmin():
 			sys.exit(0)
 
 		else:
-			cprint("\t[+] Success => " + REQUEST_LINK, 'green')	
+			cprint("\t[+] Success => " + REQUEST_LINK, 'green')
 
- 
+

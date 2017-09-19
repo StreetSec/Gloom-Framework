@@ -31,7 +31,7 @@ class Fuzzer(object):
 
             except KeyboardInterrupt:
                 cprint("[-] User Aborted Fuzz!", 'red')
-                sys.exit()
+                sys.exit(1)
 
             except:
                 continue

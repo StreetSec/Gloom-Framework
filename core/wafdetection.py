@@ -13,7 +13,7 @@ def RunDetection():
 			WAF_REQ = Request(WAF_REQ_LINK)
 			f = urlopen(WAF_REQ_LINK)
 			waf_response = f.read()
-			if waf_response is HTTPError or 'Cloudfare' in waf_response:
+			if waf_response is HTTPError or '__cfduid' in waf_response:
 				print colored("[+]", "green", attrs=['bold']) + "Cloud_Flare .. [" + colored("Detected", "green", attrs=['bold']) + "]"
 				waf = True
 				waf += 1

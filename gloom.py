@@ -2,7 +2,7 @@
 
                             Welcome To Gloom
                             ================
-    Welcome to Gloom-Framework v.1.0. Your gonna love the envirenment.
+    Welcome to Gloom-Framework v.1.8. Your gonna love the envirenment.
 Gloom is an open source Penetration Testing Framework designed for Linux systems.
 This piece if software was developed by Josh(Yeah, Just Josh). The Following will be some basic info.
 
@@ -42,6 +42,7 @@ from payloadgen import *
 from fuzzer import *
 from checkbreach import *
 from anon_email import *
+from android_attack import *
 
 try:
 	from termcolor import colored, cprint
@@ -80,10 +81,10 @@ checksudo.sudoCheck()
 class GloomMain(object):
 
 	def on_load(self):
-		__version__ = '1.6'
+		__version__ = '1.8'
 		__author__ = "Josh"
 		__date__ = datetime.datetime.now()
-		__tools__ = "8"
+		__tools__ = "16"
 
 		gloom_tools = [
 			'admin_panel_finder',
@@ -96,6 +97,7 @@ class GloomMain(object):
 			'waf_scanning',
 			'port_scanner',
 			'payload_generator'
+                        'alot_more_tools'
 
 			]
 
@@ -136,6 +138,7 @@ class GloomMain(object):
 			    print "\n"
 			    print "\t\t|Tools|"
 			    print "=" * 40
+                            print "android_attack :: " + colored("Sends an android payload via. Email and Spawns a meterpreter shell.", 'blue')
 			    print "admin_panel_finder :: " + colored("Find Website Admin Panels", 'blue')
 			    print "ip_geolocation :: " + colored("Geolocate an IP Address", 'blue')
 			    print "web_whois :: " + colored("Gather WHOIS Information on a Target", 'blue')
@@ -235,6 +238,14 @@ class GloomMain(object):
                             os.system('clear')
                             anon = AnonEmail()
                             anon.SendAnonEmail()
+                            return gloom_main.on_load()
+
+                    elif gloom_prompt == 'android_attack':
+                            attack = SMS()
+                            attack.do_login()
+                            attack.do_payload()
+                            attack.do_sms_mail()
+                            attack.do_metasploit()
                             return gloom_main.on_load()
 
 		    else:
