@@ -105,7 +105,7 @@ class SMS(object):
             from email import Encoders
 
         except ImportError as gi:
-            print self.ERROR_STRING + str(ie)
+            print self.ERROR_STRING + str(gi)
 
         except:
             pass
